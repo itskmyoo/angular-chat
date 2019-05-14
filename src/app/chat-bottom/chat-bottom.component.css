@@ -1,0 +1,30 @@
+.type-message {
+  background-color: teal;
+  margin: 0px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 22px;
+  display: flex;
+  flex-flow: grid;
+}
+
+.in-msg {
+  width: 100%;
+  background: transparent;
+  border: 0px;
+  color: white;
+}
+
+
+.in-msg::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #aaa;
+  opacity: 1; /* Firefox */
+}
+
+.btn-send {
+  padding: 4px 24px 4px 24px;
+  border-radius: 12px;
+  border: 0px;
+}
