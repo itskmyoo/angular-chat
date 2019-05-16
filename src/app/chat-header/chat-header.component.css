@@ -1,11 +1,10 @@
 .contact {
-  width: auto;
-  height: auto;
   display: flex;
   flex-flow: grid;
   border-bottom: 1px solid black;
   justify-content: center;
   background: #fff;
+  width: inherit;
 }
 
 .avatar {

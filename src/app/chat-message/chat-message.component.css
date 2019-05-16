@@ -1,21 +1,51 @@
-.message {
-  padding: 4px;
-  border: 1px solid #008ba3;
-  border-radius: 8px;
-  max-width: 500px;
-  margin: 4px;
+.message-left {
+  width: auto;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
+  margin-left: 12px;
+
 }
+
+.message-right {
+
+
+  width: auto;
+  display: flex;
+  flex-flow: row-reverse;
+  margin-right: 12px;
+
+
+}
+
 
 .message-body {
   display: flex;
-  flex-flow: grid;
+  flex-flow: column;
+  border: 1px solid #008ba3;
+  border-radius: 8px;
+  margin: 4px;
 
+  padding: 4px;
+  max-width: 500px;
+}
+
+.left {
+  border: 1px solid #cc8ba3;
+
+}
+
+.right {
+  border: 1px solid #008ba3;
 
 }
 
 .text {
   padding-right: 12px;
 
+
+}
+
+.time {
+  color: black;
+  font-size: 8px;
 }

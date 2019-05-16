@@ -1,8 +1,17 @@
-<div class="message">
 
-  <div class="message-body">
-    <p class="text">Default welcome message</p>
-    <P class="time">11.30 pm</P>
+<div class="message-right" *ngIf="message.owner">
+
+  <div class="message-body right">
+    <p class="text o-margin">{{message.title}}</p>
+    <P class="time o-margin">{{message.time}}</P>
+
+  </div>
+</div>
+<div class="message-left" *ngIf="!message.owner">
+
+  <div class="message-body left">
+    <p class="text o-margin">{{message.title}}</p>
+    <P class="time o-margin">{{message.time}}</P>
 
   </div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MessageServiceService } from './message-service.service';
+import { Component, OnInit , Input , EventEmitter} from '@angular/core';
+
 @Component({
   selector: 'app-chat-bottom',
   templateUrl: './chat-bottom.component.html',
@@ -7,6 +7,7 @@ import { MessageServiceService } from './message-service.service';
 })
 export class ChatBottomComponent implements OnInit {
 
+  // @Output() messageEmit = new EventEmitter<string>();
   currentMessage = "";
   constructor() {
    }
@@ -20,6 +21,8 @@ export class ChatBottomComponent implements OnInit {
 
     console.log(this.currentMessage);
     this.currentMessage = "";
+
+    this.messageEmit.emit(this.currentMessage);
   }
 
   onValueChange(message){

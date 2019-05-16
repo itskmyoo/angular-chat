@@ -1,7 +1,7 @@
 <div class="chat-window">
 <app-chat-header></app-chat-header>
 <div class="chat-history">
-<app-chat-message *ngFor="let item of messageHistory"  ></app-chat-message>
+<app-chat-message *ngFor="let item of chatHistory" [message]="item"></app-chat-message>
 
 
 </div>
