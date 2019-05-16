@@ -1,4 +1,4 @@
 <div class="type-message">
-<input class="in-msg" type="text" name="" value="" placeholder="Type your message here!">
-<button class="btn-send" type="button" name="button">Send</button>
+<input class="in-msg" type="text" #typeMessage (keyup)="onValueChange(typeMessage.value)" value="{{currentMessage}}" placeholder="Type your message here!">
+<button class="btn-send" type="button" name="button" (click)="onMessageClick()">Send</button>
 </div>

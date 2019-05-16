@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MessageServiceService } from './message-service.service';
 @Component({
   selector: 'app-chat-bottom',
   templateUrl: './chat-bottom.component.html',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatBottomComponent implements OnInit {
 
-  constructor() { }
+  currentMessage = "";
+  constructor() {
+   }
+
+
 
   ngOnInit() {
+  }
+
+   onMessageClick(){
+
+    console.log(this.currentMessage);
+    this.currentMessage = "";
+  }
+
+  onValueChange(message){
+    console.log(message);
+
+    this.currentMessage = message;
+
   }
 
 }

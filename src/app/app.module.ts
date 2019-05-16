@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { ChatBottomComponent } from './chat-bottom/chat-bottom.component';
 import { ChatSideComponent } from './chat-side/chat-side.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
+import { ContactCardComponent } from './contact-card/contact-card.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { ChatHeaderComponent } from './chat-header/chat-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatBottomComponent,
     ChatSideComponent,
-    ChatWindowComponent
+    ChatWindowComponent,
+    ContactCardComponent,
+    ChatMessageComponent,
+    ChatHeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatWindowComponent implements OnInit {
 
+
+  messageHistory = [
+    "message 1",
+    "message 2",
+    "message 3",
+    "message 4",
+    "message 5"
+
+  ]
   constructor() { }
 
   ngOnInit() {

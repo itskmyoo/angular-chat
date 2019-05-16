@@ -1,0 +1,42 @@
+.contact {
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-flow: grid;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  background-color: #008ba3;
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+  margin: 4px;
+}
+
+.info {
+  flex-grow: 1;
+  margin-left: 12px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.time {
+  margin-right: 4px;
+  margin-top: 4px;
+  font-size: 10px;
+}
+
+.title {
+
+}
+
+.message {
+  color:white;
+  font-size: 12px;
+}
