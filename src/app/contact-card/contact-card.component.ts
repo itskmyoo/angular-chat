@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { MessageServiceService } from '../message-service.service';
 
 @Component({
   selector: 'app-contact-card',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactCardComponent implements OnInit {
 
-  constructor() { }
-
+  @Input() contact;
+  constructor(private messageService: MessageServiceService) {
+  }
   ngOnInit() {
   }
 
+  selectChat(contactId){
+    //console.log(contactId);
+
+    this.messageService.selectChat(contactId.id);
+
+  }
 }

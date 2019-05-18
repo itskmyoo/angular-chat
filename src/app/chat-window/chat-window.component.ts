@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MessageServiceService } from '../message-service.service';
 
 @Component({
   selector: 'app-chat-window',
@@ -10,9 +11,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChatWindowComponent implements OnInit {
 
 
-  @Input() chatHistory;
+  chatHistory;
 
-  constructor() { }
+  constructor(private messageService: MessageServiceService) {
+
+    this.chatHistory = messageService.messageHistory;
+   }
 
   ngOnInit() {
   }

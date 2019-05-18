@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-chat-side></app-chat-side>
-<app-chat-window [chatHistory]="messageHistory"></app-chat-window>
+<app-chat-window></app-chat-window>
 
-<app-chat-bottom></app-chat-bottom>
+<app-chat-bottom (messageEmit)="onMessageTyped($event)"></app-chat-bottom>
 
 <router-outlet></router-outlet>

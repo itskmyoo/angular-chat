@@ -5,8 +5,14 @@
   flex-flow: grid;
   border-bottom: 1px solid black;
   justify-content: center;
+
+}
+
+.enable {
   background-color: #008ba3;
 }
+
+
 
 .avatar {
   height: 60px;

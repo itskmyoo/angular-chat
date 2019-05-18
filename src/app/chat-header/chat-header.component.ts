@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageServiceService } from '../message-service.service';
 
 @Component({
   selector: 'app-chat-header',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatHeaderComponent implements OnInit {
 
-  constructor() { }
+  time;
+  
+  constructor(private messageService: MessageServiceService) {
 
+
+  }
   ngOnInit() {
+    this.time = new Date();
   }
 
 }
