@@ -13,7 +13,10 @@ export class MessageServiceService {
       lastMessage:"",
       lastTime:"11:30",
       url:"",
-      isSelected:false
+      isSelected:false,
+      history:[
+
+      ]
     },
     {
       id:2,
@@ -21,7 +24,10 @@ export class MessageServiceService {
       lastMessage:"",
       lastTime:"11:30",
       url:"",
-      isSelected:true
+      isSelected:true,
+      history:[
+
+      ]
 
     },
     {
@@ -30,7 +36,10 @@ export class MessageServiceService {
       lastMessage:"",
       lastTime:"11:30",
       url:"",
-      isSelected:false
+      isSelected:false,
+      history:[
+
+      ]
 
     },
     {
@@ -39,7 +48,10 @@ export class MessageServiceService {
       lastMessage:"",
       lastTime:"11:30",
       url:"",
-      isSelected:false
+      isSelected:false,
+      history:[
+
+      ]
 
     },
     {
@@ -48,7 +60,10 @@ export class MessageServiceService {
       lastMessage:"",
       lastTime:"11:30",
       url:"",
-      isSelected:false
+      isSelected:false,
+      history:[
+
+      ]
 
     }
   ]
@@ -108,14 +123,21 @@ export class MessageServiceService {
 
   onMessageTyped(message){
     console.log(message);
-    this.messageHistory.push(
+
+    let createTime = new Date().toLocaleTimeString();
+    this.defaultContact.history.push(
       {
-        id:this.messageHistory.length+1,
+        id:this.defaultContact.history.length+1,
         title:message,
         owner:true,
-        time:"11:30 am"
+        time: createTime
       }
     );
+    this.defaultContact.lastTime = createTime;
+    this.defaultContact.lastMessage = message;
+    console.log(this.defaultContact);
+
+
   }
 
   constructor() { }

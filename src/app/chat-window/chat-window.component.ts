@@ -11,14 +11,18 @@ import { MessageServiceService } from '../message-service.service';
 export class ChatWindowComponent implements OnInit {
 
 
-  chatHistory;
+
 
   constructor(private messageService: MessageServiceService) {
+    //this.chatHistory = messageService.defaultContact.history;
 
-    this.chatHistory = messageService.messageHistory;
+    //console.log(this.chatHistory);
    }
 
   ngOnInit() {
+
+
+
   }
 
 }

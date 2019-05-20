@@ -11,16 +11,9 @@ export class AppComponent {
 
     onMessageTyped(message){
       console.log(message);
-      this.messageHistory.push(
-        {
-          id:this.messageHistory.length+1,
-          title:message,
-          owner:true,
-          time:"11:30 am"
-        }
-      );
+  
     }
 
 
-    
+
 }
