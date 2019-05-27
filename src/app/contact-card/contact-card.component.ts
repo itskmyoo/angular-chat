@@ -15,9 +15,9 @@ export class ContactCardComponent implements OnInit {
   }
 
   selectChat(contactId){
-    //console.log(contactId);
+    console.log(contactId._id);
 
-    this.messageService.selectChat(contactId.id);
+    this.messageService.selectChat(contactId._id);
 
   }
 }

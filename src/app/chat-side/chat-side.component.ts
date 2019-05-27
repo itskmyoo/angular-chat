@@ -10,7 +10,12 @@ export class ChatSideComponent implements OnInit {
    contactList = [];
   constructor(private messageService: MessageServiceService) {
 
-    this.contactList = messageService.contactList;
+    messageService.getServerContact().subscribe((data) => {
+      console.log(data);
+        //this.contactList = data;
+      messageService.setContactList(data);
+    });
+    // this.contactList = messageService.contactList;
   }
 
   ngOnInit() {

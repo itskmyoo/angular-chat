@@ -1,16 +1,16 @@
 
-<div class="message-right" *ngIf="message.owner">
+<div class="message-right" *ngIf="message.senderId==messageService.senderContact._id">
 
   <div class="message-body right">
-    <p class="text o-margin">{{message.title}}</p>
+    <p class="text o-margin">{{message.message}}</p>
     <P class="time o-margin">{{message.time}}</P>
 
   </div>
 </div>
-<div class="message-left" *ngIf="!message.owner">
+<div class="message-left" *ngIf="message.senderId!=messageService.senderContact._id">
 
   <div class="message-body left">
-    <p class="text o-margin">{{message.title}}</p>
+    <p class="text o-margin">{{message.message}}</p>
     <P class="time o-margin">{{message.time}}</P>
 
   </div>

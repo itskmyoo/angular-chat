@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,69 +8,30 @@ import { Injectable } from '@angular/core';
 export class MessageServiceService {
 
 
-  contactList = [
-    {
-      id:1,
-      username:"Rachit",
-      lastMessage:"",
-      lastTime:"11:30",
-      url:"",
-      isSelected:false,
-      history:[
-
-      ]
-    },
-    {
-      id:2,
-      username:"Priyanshi",
-      lastMessage:"",
-      lastTime:"11:30",
-      url:"",
-      isSelected:true,
-      history:[
-
-      ]
-
-    },
-    {
-      id:3,
-      username:"Bhavit",
-      lastMessage:"",
-      lastTime:"11:30",
-      url:"",
-      isSelected:false,
-      history:[
-
-      ]
-
-    },
-    {
-      id:4,
-      username:"Ayushi",
-      lastMessage:"",
-      lastTime:"11:30",
-      url:"",
-      isSelected:false,
-      history:[
-
-      ]
-
-    },
-    {
-      id:5,
-      username:"Kalpit",
-      lastMessage:"",
-      lastTime:"11:30",
-      url:"",
-      isSelected:false,
-      history:[
-
-      ]
-
-    }
-  ]
+  contactList = []
 
   defaultContact = this.contactList[0];
+
+  senderContact;
+
+
+  setContactList(data){
+
+
+
+      this.senderContact = data[0];
+      data = data.slice(1,data.length);
+      console.log(data);
+      this.contactList = data;
+       data[0].isSelected = true;
+      this.defaultContact = data[0];
+
+
+
+      //
+      console.log(this.defaultContact);
+
+  }
 
 
   selectChat(id){
@@ -76,10 +39,17 @@ export class MessageServiceService {
 
     // contactList.map((contact)=>contact.id == id);
     // contactList.for
+
+
     for(var i =0 ; i < this.contactList.length ; i++){
-      if(this.contactList[i].id == id){
+      if(this.contactList[i]._id == id){
         this.contactList[i].isSelected = true;
+        if(this.contactList[i].history == undefined)
+        this.contactList[i] = {...this.contactList[i] , history:[]};
+
         this.defaultContact = this.contactList[i];
+
+        this.getChatHistory();
 
       }else{
         this.contactList[i].isSelected = false;
@@ -124,21 +94,58 @@ export class MessageServiceService {
   onMessageTyped(message){
     console.log(message);
 
-    let createTime = new Date().toLocaleTimeString();
-    this.defaultContact.history.push(
-      {
-        id:this.defaultContact.history.length+1,
-        title:message,
-        owner:true,
-        time: createTime
+
+     this.http.post("http://192.168.1.3:3000/message" , {
+       senderId:this.senderContact._id,
+       receiverId:this.defaultContact._id,
+       message:message
+     }).subscribe((data)=>{
+       console.log(data);
+       let createTime = new Date().toLocaleTimeString();
+    
+
+       for(var i =0 ; i < this.contactList.length ; i++){
+         if(this.contactList[i]._id == this.defaultContact._id){
+           this.contactList[i]['history'].push({...data, owner:true});
+           this.contactList[i].lastTime = createTime;
+          this.contactList[i].lastMessage = message;
+
+         }
+       }
+
+
+       console.log(this.defaultContact);
+     });
+
+
+
+
+
+  }
+  getChatHistory(){
+    this.http.post("http://192.168.1.3:3000/chat" , {
+      senderId:this.senderContact._id,
+      receiverId:this.defaultContact._id
+    }).subscribe((data)=>{
+
+      console.log(data);
+
+      for(var i =0 ; i < this.contactList.length ; i++){
+        if(this.contactList[i]._id == this.defaultContact._id){
+          this.contactList[i]['history'] = data;
+
+
+        }
       }
-    );
-    this.defaultContact.lastTime = createTime;
-    this.defaultContact.lastMessage = message;
-    console.log(this.defaultContact);
+
+    });
+  }
+  getServerContact(){
+
+    return this.http.get("http://192.168.1.3:3000/contact");
 
 
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }

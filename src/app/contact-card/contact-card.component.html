@@ -2,18 +2,18 @@
 
 <img src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png" class="avatar" alt="">
 <div class="info">
-<p class="no-margin title">{{contact.username}}</p>
+<p class="no-margin title">{{contact.name}}</p>
 <p  class="no-margin message">{{contact.lastMessage}}</p>
 </div>
-<p class="time no-margin">{{contact.lastTime}}</p>
+<p class="time no-margin">{{contact.lastSeen}}</p>
 </div>
 
 <div class="contact enable" *ngIf="contact.isSelected" (click)="selectChat(contact)">
 
 <img src="https://www.pngarts.com/files/3/Avatar-Transparent-Image.png" class="avatar" alt="">
 <div class="info">
-<p class="no-margin title">{{contact.username}}</p>
+<p class="no-margin title">{{contact.name}}</p>
 <p  class="no-margin message">{{contact.lastMessage}}</p>
 </div>
-<p class="time no-margin">{{contact.lastTime}}</p>
+<p class="time no-margin">{{contact.lastSeen}}</p>
 </div>
